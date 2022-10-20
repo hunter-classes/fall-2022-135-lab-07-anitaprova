@@ -45,8 +45,6 @@ int main() {
 			
 		}
 		out_file << tabs << str << std::endl;
-		
-		std::cout << open << " " << close << " " << block << " " << " END" <<std::endl;
 	}
 		
 	return 0;
