@@ -36,11 +36,12 @@ int main() {
 
 	int open, close, block = 0;
 	while(getline(in_file, line)) {
-		
-		std::cout << open << " " << close << " " << block << " " << std::endl;
-		
+		block = open - close;
+		open += countChar(line, '{');
+		close += countChar(line, '}');
+
 		std::string tabs = "";
-		if(line == "}") {
+		if(line[0] == '}') {
 			for (int i = 0; i < block - 1; i++) {
 				tabs += '\t';
 			}
@@ -53,9 +54,7 @@ int main() {
 		}
 		out_file << tabs << line << std::endl;
 		
-		open += countChar(line, '{');
-		close += countChar(line, '}');
-		block = open - close;
+		std::cout << open << " " << close << " " << block << " " << " END" <<std::endl;
 	}
 		
 	return 0;
