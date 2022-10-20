@@ -36,14 +36,20 @@ int main() {
 
 	int open, close, block = 0;
 	while(getline(in_file, line)) {
-
+		
+		std::cout << open << " " << close << " " << block << " " << std::endl;
+		
 		std::string tabs = "";
-		for (int i = 0; i < block; i++) {
-			if(line == "}") {
-				i++;
-				if(i >= block) {break;}
+		if(line == "}") {
+			for (int i = 0; i < block - 1; i++) {
+				tabs += '\t';
 			}
-			tabs += '\t';
+		}
+		else {
+			for (int i = 0; i < block; i++) {
+				tabs += '\t';
+			}
+			
 		}
 		out_file << tabs << line << std::endl;
 		
