@@ -34,7 +34,10 @@ int main() {
 	in_file.open("unindented-code.cpp");
 	out_file.open("good-code.cpp");
 
-	int open, close, block = 0;
+	int open = 0;
+	int close = 0;
+	int block = 0;
+	
 	while(getline(in_file, line)) {
 		block = open - close;
 		open += countChar(line, '{');
